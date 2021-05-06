@@ -1,0 +1,32 @@
+<?xml version="1.0" ?><tool id="cise" name="cise" version="1.0.0">
+	<description>clustering</description>
+    <requirements>
+        <container type="docker">docker.synapse.org/syn2813581/6181022/wind910037/temp2</container>
+    </requirements>
+	<command interpreter="Rscript">
+cise.R ${input_vcf} ${input_bat} ${sample_number}
+	</command>
+
+	<inputs>
+		<param format="vcf" help="" label="VCF file" name="input_vcf" type="data"/>
+		<param format="txt" help="" label="Bat file" name="input_bat" type="data"/>
+		<param help="The ith sample column in the VCF file" label="Sample number" name="sample_number" type="integer" value="1"/>
+	</inputs>
+
+	<outputs>
+		<data format="txt" from_work_dir="subchallenge1A.txt" label="Cellularity (Sub Challenge 1A)" name="cellularity"/>
+		<data format="txt" from_work_dir="subchallenge1B.txt" label="Number Clusters (Sub Challenge 1B)" name="no_clusters"/>
+		<data format="txt" from_work_dir="subchallenge1C.txt" label="Cluster Proportions (Sub Challenge 1C)" name="proportions"/>
+		<data format="txt" from_work_dir="subchallenge2A.txt" label="Cluster Assignments (Sub Challenge 2A)" name="assignments"/>
+	</outputs>
+
+	<help>
+You should totally explain how to use your tool here
+	</help>
+
+	<tests>
+		<test>
+		</test>
+	</tests>
+
+</tool>
